@@ -75,29 +75,30 @@
 
   <script>
     function calculateBMI() {
-      const weight = parseFloat(document.getElementById("weight").value);
-      const height = parseFloat(document.getElementById("height").value);
-      const result = document.getElementById("result");
+  const weight = parseFloat(document.getElementById("weight").value);
+  const height = parseFloat(document.getElementById("height").value);
+  const result = document.getElementById("result");
 
-      if (!weight || !height || weight <= 0 || height <= 0) {
-        result.textContent = "Please enter valid weight and height.";
-        return;
-      }
+  if (!weight || !height || weight <= 0 || height <= 0) {
+    result.textContent = "Please enter valid weight and height.";
+    return;
+  }
 
-      let bmi = weight / ((height * height) / 10000);;
-      let message = `Your BMI is ${bmi.toFixed(2)}. `;
+  const bmi = weight / ((height * height) / 10000);
+  let message = `Your BMI is ${bmi.toFixed(2)}. `;
 
-      if (bmi < 18.5) {
-        message += "You are underweight.";
-      } else if (bmi < 24.9) {
-        message += "You have a normal weight.";
-      } else if (bmi < 29.9) {
-        message += "You are overweight.";
-      } else {
-        message += "You are obese.";
-      }
+  if (bmi < 18.5) {
+    message += "You are underweight.";
+  } else if (bmi < 24.9) {
+    message += "You have a normal weight.";
+  } else if (bmi < 29.9) {
+    message += "You are overweight.";
+  } else {
+    message += "You are obese.";
+  }
 
-      result.textContent = message;
+  result.textContent = message;
+
     }
 
     // Prompt for A2HS (Add to Home Screen)
