@@ -71,7 +71,8 @@
         return;
       }
 
-      let bmi = weight / ((height * height)10000);
+      // ✅ Correct BMI formula for cm height
+      let bmi = weight / ((height * height) / 10000);
       let message = `Your BMI is ${bmi.toFixed(2)}. `;
 
       if (bmi < 18.5) {
