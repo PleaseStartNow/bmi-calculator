@@ -28,9 +28,9 @@
     }
 
     .container {
-      background: rgba(255, 255, 255, 0.2); /* ✅ Fixed the rgba */
+      background: rgba(256, 256, 256, 0.2);
       border-radius: 20px;
-      box-shadow: 1px 8px 32px 0 rgba(31, 38, 135, 0.37);
+      box-shadow: 1 8px 32px 0 rgba(31, 38, 135, 0.37);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       padding: 30px;
@@ -42,7 +42,7 @@
 
     h1 {
       margin-bottom: 20px;
-      color: #000000; /* ✅ Heading in black */
+      color: #000000;
     }
 
     input {
@@ -71,6 +71,16 @@
       font-weight: bold;
       color: black;
     }
+
+    .bmi-guide {
+      margin-top: 25px;
+      text-align: left;
+      color: black;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.4);
+      padding: 12px;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -80,6 +90,14 @@
     <input type="number" id="height" placeholder="Enter height (cm)">
     <button onclick="calculateBMI()">Calculate</button>
     <div class="result" id="result"></div>
+
+    <div class="bmi-guide">
+      <p><strong>BMI Classification:</strong></p>
+      <p>• BMI below 18.5 → You are <strong>Underweight</strong></p>
+      <p>• BMI from 18.5 to 24.9 → You have <strong>Normal weight</strong></p>
+      <p>• BMI from 25 to 29.9 → You are <strong>Overweight</strong></p>
+      <p>• BMI 30 and above → You are <strong>Obese</strong></p>
+    </div>
   </div>
 
   <script>
