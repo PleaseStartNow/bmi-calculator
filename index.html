@@ -5,7 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BMI Calculator</title>
 
-  <!-- Manifest for Add to Home Screen -->
+  <!-- PWA Meta -->
+  <meta name="theme-color" content="#ff6f61" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Manifest and Icon -->
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" href="icon.png" type="image/png" />
 
@@ -75,30 +80,29 @@
 
   <script>
     function calculateBMI() {
-  const weight = parseFloat(document.getElementById("weight").value);
-  const height = parseFloat(document.getElementById("height").value);
-  const result = document.getElementById("result");
+      const weight = parseFloat(document.getElementById("weight").value);
+      const height = parseFloat(document.getElementById("height").value);
+      const result = document.getElementById("result");
 
-  if (!weight || !height || weight <= 0 || height <= 0) {
-    result.textContent = "Please enter valid weight and height.";
-    return;
-  }
+      if (!weight || !height || weight <= 0 || height <= 0) {
+        result.textContent = "Please enter valid weight and height.";
+        return;
+      }
 
-  const bmi = weight / ((height * height) / 10000);
-  let message = `Your BMI is ${bmi.toFixed(2)}. `;
+      const bmi = weight / ((height * height) / 10000);
+      let message = `Your BMI is ${bmi.toFixed(2)}. `;
 
-  if (bmi < 18.5) {
-    message += "You are underweight.";
-  } else if (bmi < 24.9) {
-    message += "You have a normal weight.";
-  } else if (bmi < 29.9) {
-    message += "You are overweight.";
-  } else {
-    message += "You are obese.";
-  }
+      if (bmi < 18.5) {
+        message += "You are underweight.";
+      } else if (bmi < 24.9) {
+        message += "You have a normal weight.";
+      } else if (bmi < 29.9) {
+        message += "You are overweight.";
+      } else {
+        message += "You are obese.";
+      }
 
-  result.textContent = message;
-
+      result.textContent = message;
     }
 
     // Prompt for A2HS (Add to Home Screen)
@@ -106,8 +110,7 @@
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredPrompt = e;
-      // Optionally auto-show a custom button to install
-      // You can add a button and trigger: deferredPrompt.prompt();
+      // Optional: Add your own install button and call deferredPrompt.prompt();
     });
   </script>
 </body>
