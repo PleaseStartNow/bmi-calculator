@@ -55,7 +55,7 @@
   <div class="container">
     <h1>BMI Calculator</h1>
     <input type="number" id="weight" placeholder="Enter weight (kg)">
-    <input type="number" id="height" placeholder="Enter height (m)">
+    <input type="number" id="height" placeholder="Enter height (cm)">
     <button onclick="calculateBMI()">Calculate</button>
     <div class="result" id="result"></div>
   </div>
@@ -71,7 +71,7 @@
         return;
       }
 
-      let bmi = weight / (height * height);
+      let bmi = weight / ((height * height)10000);
       let message = `Your BMI is ${bmi.toFixed(2)}. `;
 
       if (bmi < 18.5) {
